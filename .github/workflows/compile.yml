@@ -1,0 +1,27 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup Python
+    - uses: actions/setup-python@v2.1.4
+      with:
+        # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+        python-version: 3.x # optional, default is 3.x
+        # The target architecture (x86, x64) of the Python interpreter.
+        architecture: (x86, x64) # optional
+        # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
+        #token: # optional, default is ${{ github.token }}
+          
+    - uses: actions/compilation
+    - name: compilation
+      run: python build.py
