@@ -4,8 +4,8 @@ import sys
 separationNumber = 60
 
 if __name__ == "__main__":
-    warningsFile = "error_output.txt"
-    currentPath = '/'.join(os.getcwd().split('/')[-3:-1])
+    warningsFile = "compilation/error_output.txt"
+    currentPath = '/'.join(os.getcwd().split('/')[-3:])
     projWarnings = []
     projErrors = []
     librariesWarningsNumber = 0

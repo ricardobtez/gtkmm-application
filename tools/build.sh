@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILD_DIR=./build
+BUILD_DIR=../build
 
 # Get all the passed arguments
 args=("$@")
@@ -25,7 +25,7 @@ then
     mkdir $BUILD_DIR
     cd $BUILD_DIR
     cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=${RELEASE_TYPE} ..
-    cd ..
+    cd ../tools
 else
     echo "The build directory already exists"
 fi
@@ -37,6 +37,6 @@ echo ----------------------------------------
 cd $BUILD_DIR
 
 make -j4 2>error_output.txt
-python ../warnings.py
+python ${PWD}/../tools/warnings.py
 
 cd ..
