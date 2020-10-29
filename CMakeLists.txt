@@ -22,10 +22,9 @@ set_project_warnings(project_warnings)
 set(AUX_SOURCE
     src/MainApplication.cpp
     src/MainWindow.cpp
-    src/ChildClass.cpp
 )
 
-add_executable(sample src/main_test.cpp ${AUX_SOURCE})
+add_executable(sample src/main.cpp ${AUX_SOURCE})
 target_include_directories(sample PUBLIC ./ ${gtkmm-3.0_INCLUDE_DIRS})
 
 #${gtkmm-3.0_CFLAGS} ${gtkmm-3.0_CFLAGS_OTHER}

@@ -33,7 +33,7 @@ if __name__ == "__main__":
         print(warning)
     print(separationNumber * "*")
     print("Error/Warnings Review finished")
-    print("For more information check the file:")
+    print("For more information check the file: " + warningsFile)
     print(separationNumber * "*")
     print("Number of project errors:", len(projErrors))
     print("Number of project warnings:", len(projWarnings))

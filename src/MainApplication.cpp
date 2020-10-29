@@ -44,6 +44,8 @@ void MainApplication::on_activate()
 void MainApplication::on_open(const Gio::Application::type_vec_files& files,
         const Glib::ustring& hint)
 {
+    (void) files;
+    (void) hint;
 }
 
 void MainApplication::on_hide_window(Gtk::Window* window)
