@@ -1,17 +1,22 @@
 
 #include <iostream>
+#include <gtkmm/menuitem.h>
 #include "MainWindow.hpp"
 
 MainWindow::MainWindow() :
-    Gtk::ApplicationWindow()
+    Gtk::ApplicationWindow(),
+    m_menu(Gtk::MenuBar())
 {
     // Sets the title of the window. Property of the Gtk::Window super class
     set_title(Glib::ustring("Application Title"));
-    int width = 200;
-    int heigth = 200;
-    int x =0, y=0;
+    int width = 400;
+    int heigth = 400;
     set_default_size(width, heigth);
-    get_position(x, y);
-    std::cout << "The default size of the application is:" << std::to_string(width * heigth) << std::endl;
+    
+    auto fileMenu = new Gtk::MenuItem("_File");
+    fileMenu->set_visible();
+    fileMenu->activate();
+    //fileMenu->register_window(*static_cast<const Glib::RefPtr<Gdk::Window>>(this));
+    m_menu.append(*fileMenu);
 }
 

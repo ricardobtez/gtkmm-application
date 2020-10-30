@@ -9,7 +9,7 @@ makeCleanCommand = ['make', 'clean']
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Python build script')
-    parser.add_argument('--force', action='store_const', dest='force', const=True,
+    parser.add_argument('--force', '-f', action='store_const', dest='force', const=True,
         help='force the rebuild of the program')
     args = parser.parse_args()
 
@@ -25,7 +25,11 @@ if __name__ == "__main__":
     with open('error_output.txt', 'w') as fileHandler:
         result = subprocess.run(makeCommand, stderr=fileHandler)
     os.chdir('../')
-    result = subprocess.run(['python', 'tools/warnings.py'])
+    if (not os.path.exists('./compilation/sample')):
+        result .returncode = 69
+        print("The executable was not created!")
+    else:
+        result = subprocess.run(['python', 'tools/warnings.py'])
     
     if result.returncode != 0:
         print("Error when compiling the project")
