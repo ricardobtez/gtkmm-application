@@ -1,5 +1,6 @@
 import subprocess
 import os
+import shutil
 import argparse
 
 cmakeCommand = ['cmake', '-G', 'Unix Makefiles', '-DCMAKE_BUILD_TYPE=Release', '..']
@@ -11,13 +12,21 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Python build script')
     parser.add_argument('--force', '-f', action='store_const', dest='force', const=True,
         help='force the rebuild of the program')
+    parser.add_argument('--clean', '-c', action='store_const', dest='clean', const=True,
+        help='Clean the project and build directory')
     args = parser.parse_args()
 
+    if (args.clean):
+        try:
+            shutil.rmtree('./compilation')
+        except FileNotFoundError:
+            pass
+        os._exit(0)
     print("Python build script")
     try:
         os.mkdir("compilation")
     except FileExistsError:
-        print("Folder already exists, no problem")
+        print("Building folder already exists... rebuilding? use the -f option")
     os.chdir('./compilation')
     if args.force:
         result = subprocess.run(makeCleanCommand)
