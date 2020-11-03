@@ -214,7 +214,7 @@ void MainApplication::on_startup(void)
 
     if (!(gmenu && appMenu))
     {
-        g_warning("GMenu or AppMenu not found");
+        std::cout << "GMenu or AppMenu not found\n";
     }
     else
     {
