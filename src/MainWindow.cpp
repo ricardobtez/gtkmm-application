@@ -15,7 +15,7 @@ MainWindow::MainWindow() :
 
     add(m_box);
 
-    add_action("copy",
+    add_action("copy"
         sigc::mem_fun(*this, &MainWindow::on_menu_others));
 
     add_action("paste",
