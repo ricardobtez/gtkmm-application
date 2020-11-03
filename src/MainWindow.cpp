@@ -5,7 +5,8 @@
 #include "MainWindow.hpp"
 
 MainWindow::MainWindow() :
-    Gtk::ApplicationWindow()
+    Gtk::ApplicationWindow(),
+    m_box(Gtk::ORIENTATION_VERTICAL)
 {
     // Sets the title of the window. Property of the Gtk::Window super class
     set_title(Glib::ustring("Application Title"));

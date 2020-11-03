@@ -3,7 +3,6 @@
 
 #include <gtkmm.h>
 
-class MainWindow;
 
 class MainApplication : public Gtk::Application
 {

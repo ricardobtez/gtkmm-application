@@ -28,12 +28,11 @@ void MainApplication::create_window(void)
     // otherwise equivalent to Gtk::Application::add_window().
 
     // Delete the window when it is hidden.
-    /*window->signal_hide().connect(sigc::bind<Gtk::Window*>(
-        sigc::mem_fun(*this, &MainApplication::on_hide_window),
-        window));
+    window->signal_hide().connect(sigc::bind<Gtk::Window*>(
+        sigc::mem_fun(*this, &MainApplication::on_window_hide), window));
 
     // let's show a window.
-    window->show_all();*/
+    window->show_all();
 }
 
 void MainApplication::on_startup(void)
