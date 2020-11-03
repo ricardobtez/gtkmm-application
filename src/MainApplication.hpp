@@ -12,13 +12,18 @@ public:
 protected:
     explicit MainApplication(void);
     // override default signal handlers
+    void on_startup() override;
     void on_activate(void) override;
-    void on_open(const Gio::Application::type_vec_files& files,
-        const Glib::ustring& hint) override;
 
 private:
-    MainWindow* create_window(void);
-    void on_hide_window(Gtk::Window* window);
+    void create_window(void);
+
+    void on_window_hide(Gtk::Window* window);
+    void on_menu_file_new_generic();
+    void on_menu_file_quit();
+    void on_menu_help_about();
+
+    Glib::RefPtr<Gtk::Builder> m_refBuilder;
 };
 
 #endif /* MAIN_APPLICATION_H */
