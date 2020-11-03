@@ -14,7 +14,7 @@ if __name__ == "__main__":
     print("Python build script")
     parser = argparse.ArgumentParser(description='Python build script')
     parser.add_argument('-b', '--build', dest='build_type',
-        action='store', required=True, default='debug',
+        action='store', required=False, default='debug',
         help="The build type to run: [" + ','.join(valid_build_type) + "]. Default=debug")
     parser.add_argument('-f', '--force', action='store_const', dest='force', const=True,
         help='force the rebuild of the program')
