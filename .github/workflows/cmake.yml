@@ -14,9 +14,18 @@ jobs:
        with:
          apt-get: pkg-config libgtkmm-3.0-dev
 
-  script:
+  build-script:
     runs-on: ubuntu-latest
     steps:
+      - uses: mstksg/get-package@v1
+        with:
+          apt-get: pkg-config libgtkmm-3.0-dev
+      - uses: actions/checkout@v2
+      - name: Run the python build script in the project
+        shell: bash
+        working-directory: ${{runner.workspace}}/gtkmm-application
+        run: pwd
+
       - uses: actions/checkout@v2
       - name: Run the python build script in the project
         shell: bash
@@ -31,6 +40,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: mstksg/get-package@v1
+      with:
+        apt-get: pkg-config libgtkmm-3.0-dev
+
     - uses: actions/checkout@v2
 
     - name: Create Build Environment
