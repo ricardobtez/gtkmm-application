@@ -7,13 +7,6 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  install-dependencies:
-   runs-on: ubuntu-latest
-   steps:
-     - uses: mstksg/get-package@v1
-       with:
-         apt-get: pkg-config libgtkmm-3.0-dev
-
   build-script:
     runs-on: ubuntu-latest
     steps:
@@ -24,13 +17,7 @@ jobs:
       - name: Run the python build script in the project
         shell: bash
         working-directory: ${{runner.workspace}}/gtkmm-application
-        run: pwd
-
-      - uses: actions/checkout@v2
-      - name: Run the python build script in the project
-        shell: bash
-        working-directory: ${{runner.workspace}}
-        run: python ../build.py -b release -f
+        run: python build.py -b release -f
         
   build:
     # The CMake configure and build commands are platform agnostic and should work equally
