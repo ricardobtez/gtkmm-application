@@ -17,7 +17,7 @@ jobs:
       - name: Run the python build script in the project
         shell: bash
         working-directory: ${{runner.workspace}}/gtkmm-application
-        run: python build.py -b release -f
+        run: python3 build.py -b release -f
         
   build:
     # The CMake configure and build commands are platform agnostic and should work equally
