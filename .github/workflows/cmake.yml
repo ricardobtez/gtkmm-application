@@ -11,8 +11,8 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - uses: mstksg/get-package@v1
-     - with:
-        apt-get: pkg-config gtkmm-3.0 
+       with:
+         apt-get: pkg-config gtkmm-3.0 
   
   script:
     runs-on: ubuntu-latest
