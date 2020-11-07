@@ -13,7 +13,7 @@ if __name__ == "__main__":
     print("ProjectPath:*/", currentPath)
     for line in open(warningsFile, "r"):
         if currentPath in line:
-            if ": error:" in line:
+            if "error:" in line:
                 projErrors.append(line)
             elif "warning" in line:
                 projWarnings.append(line)

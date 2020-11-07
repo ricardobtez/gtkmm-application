@@ -10,8 +10,10 @@ MainWindow::MainWindow() :
 {
     // Sets the title of the window. Property of the Gtk::Window super class
     set_title(Glib::ustring("Application Title"));
-    int width = 400;
-    int heigth = 400;
+    Glib::RefPtr< const Gdk::Screen > rRefScreen = get_screen();
+    
+    int width = rRefScreen->get_width() / 2;
+    int heigth = rRefScreen->get_height() / 2;
     set_default_size(width, heigth);
 
     add(m_box);
