@@ -22,14 +22,14 @@ MainWindow::MainWindow() :
     add_action("paste",
         sigc::mem_fun(*this, &MainWindow::on_menu_others));
 
-    add_action("something",
-        sigc::mem_fun(*this, &MainWindow::on_menu_others));
+    //add_action("something",
+    //    sigc::mem_fun(*this, &MainWindow::on_menu_others));
         
     // choises memus, to demonstrate Radio Items,
     // using our convenience methods for string and int radio values:
-    m_refChoice = add_action_radio_string("choise",
+    m_refChoice = add_action_radio_string("choice",
         sigc::mem_fun(*this, &MainWindow::on_menu_choices), "a");
-    m_refChoiceOther = add_action_radio_integer("choiseother",
+    m_refChoiceOther = add_action_radio_integer("choiceother",
         sigc::mem_fun(*this, &MainWindow::on_menu_choices_other), 1);
     m_refToggle = add_action_bool("sometoggle",
         sigc::mem_fun(*this, &MainWindow::on_menu_toggle), false);
@@ -86,7 +86,7 @@ void MainWindow::on_menu_choices(const Glib::ustring& parameter)
     std::cout << message << std::endl;
 }
 
-void MainWindow::on_menu_choices_other(int parameter)
+void MainWindow::on_menu_choices_other(const int parameter)
 {
     //The radio action's state does not change automatically:
     m_refChoice->change_state(parameter);

@@ -5,7 +5,7 @@
 MainApplication::MainApplication(void) :
     Gtk::Application("RicardoBenitez.xyz")
 {
-    Glib::set_application_name("Main Menu Example");
+    //Glib::set_application_name("Main Menu Example");
 }
 
 
@@ -44,14 +44,14 @@ void MainApplication::on_startup(void)
     // We can use add_action()because Gtk::Applicaiton derives from Gio::ActionMap
 
     //File|New sub menu:
-    add_action("newstandard",
-        sigc::mem_fun(*this, &MainApplication::on_menu_file_new_generic));
+    add_action("new",
+        sigc::mem_fun(*this, &MainApplication::on_menu_file_new));
         
-    add_action("newfoo",
-        sigc::mem_fun(*this, &MainApplication::on_menu_file_new_generic));
+    add_action("open",
+        sigc::mem_fun(*this, &MainApplication::on_menu_file_open));
 
-    add_action("newgoo",
-        sigc::mem_fun(*this, &MainApplication::on_menu_file_new_generic));
+    add_action("save",
+        sigc::mem_fun(*this, &MainApplication::on_menu_file_save));
         
     // File menu
     add_action("quit", sigc::mem_fun(*this, &MainApplication::on_menu_file_quit));
@@ -83,7 +83,7 @@ void MainApplication::on_startup(void)
     }
     else
     {
-      set_app_menu(appMenu);
+      //set_app_menu(appMenu);
       set_menubar(gmenu);
     }
 }
@@ -99,9 +99,19 @@ void MainApplication::on_window_hide(Gtk::Window* window)
     delete window;
 }
 
-void MainApplication::on_menu_file_new_generic(void)
+void MainApplication::on_menu_file_new(void)
 {
-    std::cout << "A file|New menu Item was selected\n";
+    std::cout << "A File|New Item was selected\n";
+}
+
+void MainApplication::on_menu_file_open(void)
+{
+    std::cout << "A File|Open Item was selected\n";
+}
+
+void MainApplication::on_menu_file_save(void)
+{
+    std::cout << "A File|Save Item was selected\n";
 }
 
 void MainApplication::on_menu_file_quit(void)

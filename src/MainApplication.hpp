@@ -1,4 +1,4 @@
-#ifndef MAIN_APPLICATION_H
+#ifndef MAIN_APPLICATION_Hsa
 #define MAIN_APPLICATION_H
 
 #include <gtkmm.h>
@@ -18,7 +18,9 @@ private:
     void create_window(void);
 
     void on_window_hide(Gtk::Window* window);
-    void on_menu_file_new_generic();
+    void on_menu_file_new();
+    void on_menu_file_open();
+    void on_menu_file_save();
     void on_menu_file_quit();
     void on_menu_help_about();
 

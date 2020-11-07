@@ -15,7 +15,7 @@ protected:
     // Signal handlers
     void on_menu_others(void);
     void on_menu_choices(const Glib::ustring& parameter);
-    void on_menu_choices_other(int parameter);
+    void on_menu_choices_other(const int parameter);
     void on_menu_toggle();
 
     // Child widgets
