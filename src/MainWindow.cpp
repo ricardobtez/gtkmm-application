@@ -39,45 +39,11 @@ MainWindow::MainWindow() :
 
     m_refBuilder = Gtk::Builder::create();
 
-    Glib::ustring ui_info =
-    "<!-- Generated with glade 3.18.3 -->"
-    "<interface>"
-    "  <requires lib='gtk+' version='3.4'/>"
-    "  <object class='GtkToolbar' id='toolbar'>"
-    "    <property name='visible'>True</property>"
-    "    <property name='can_focus'>False</property>"
-    "    <child>"
-    "      <object class='GtkToolButton' id='toolbutton_new'>"
-    "        <property name='visible'>True</property>"
-    "        <property name='can_focus'>False</property>"
-    "        <property name='tooltip_text' translatable='yes'>New Standard</property>"
-    "        <property name='action_name'>app.newstandard</property>"
-    "        <property name='icon_name'>document-new</property>"
-    "      </object>"
-    "      <packing>"
-    "        <property name='expand'>False</property>"
-    "        <property name='homogeneous'>True</property>"
-    "      </packing>"
-    "    </child>"
-    "    <child>"
-    "      <object class='GtkToolButton' id='toolbutton_quit'>"
-    "        <property name='visible'>True</property>"
-    "        <property name='can_focus'>False</property>"
-    "        <property name='tooltip_text' translatable='yes'>Quit</property>"
-    "        <property name='action_name'>app.quit</property>"
-    "        <property name='icon_name'>application-exit</property>"
-    "      </object>"
-    "      <packing>"
-    "        <property name='expand'>False</property>"
-    "        <property name='homogeneous'>True</property>"
-    "      </packing>"
-    "    </child>"
-    "  </object>"
-    "</interface>";
+    std::string builderFilename = "../src/BuilderFiles/MainWindow.xml";
 
     try
     {
-      m_refBuilder->add_from_string(ui_info);
+      m_refBuilder->add_from_file(builderFilename);
     }
     catch (const Glib::Error& ex)
     {
