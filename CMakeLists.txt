@@ -10,7 +10,7 @@ add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_17)
 
 # Option specifications
-option(ENABLE_TESTING "Enable Test Builds" ON)
+option(ENABLE_TESTING "Enable Test Builds" OFF)
 
 # Link this 'library' to use the warnings specified in CompilerWarnings.cmake
 add_library(project_warnings INTERFACE)
