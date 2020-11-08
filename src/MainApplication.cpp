@@ -57,7 +57,7 @@ void MainApplication::on_startup(void)
     add_action("quit", sigc::mem_fun(*this, &MainApplication::on_menu_file_quit));
 
     // Help menu
-    add_action("help", sigc::mem_fun(*this, &MainApplication::on_menu_help_about));
+    add_action("about", sigc::mem_fun(*this, &MainApplication::on_menu_help_about));
 
     m_refBuilder = Gtk::Builder::create();
 
