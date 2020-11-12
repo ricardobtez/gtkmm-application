@@ -29,10 +29,8 @@ MainWindow::MainWindow() :
         
     // choises memus, to demonstrate Radio Items,
     // using our convenience methods for string and int radio values:
-    m_refChoice = add_action_radio_string("choice",
-        sigc::mem_fun(*this, &MainWindow::on_menu_choices), "a");
-    m_refChoiceOther = add_action_radio_integer("choiceother",
-        sigc::mem_fun(*this, &MainWindow::on_menu_choices_other), 1);
+    m_refChoice = add_action("preferences",
+        sigc::mem_fun(*this, &MainWindow::on_menu_preferences_options));
     m_refToggle = add_action_bool("sometoggle",
         sigc::mem_fun(*this, &MainWindow::on_menu_toggle), false);
         
@@ -74,18 +72,9 @@ void MainWindow::on_menu_others()
     std::cout << "A menu item was selected." << std::endl;
 }
 
-void MainWindow::on_menu_choices(const Glib::ustring& parameter)
+void MainWindow::on_menu_preferences_options()
 {
-    //The radio action's state does not change automatically:
-    m_refChoice->change_state(parameter);
-
-    Glib::ustring message;
-    if(parameter == "a")
-        message = "Choice a was selected";
-    else
-        message = "Choice b was selected";
-
-    std::cout << message << std::endl;
+    std::cout << "Preferences|Options button pressed" << std::endl;
 }
 
 void MainWindow::on_menu_choices_other(const int parameter)
