@@ -3,7 +3,7 @@
 #include "MainWindow.hpp"
 
 MainApplication::MainApplication(void) :
-    Gtk::Application("RicardoBenitez.xyz")
+    Gtk::Application("gtkmm-application.com")
 {
     //Glib::set_application_name("Main Menu Example");
 }

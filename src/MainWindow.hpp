@@ -14,7 +14,6 @@ public:
 protected:
     // Signal handlers
     void on_menu_others(void);
-    void on_menu_choices(const Glib::ustring& parameter);
     void on_menu_choices_other(const int parameter);
     void on_menu_toggle();
 
@@ -28,6 +27,9 @@ protected:
     Glib::RefPtr<Gio::SimpleAction> m_refChoiceOther;
 
     Glib::RefPtr<Gio::SimpleAction> m_refToggle;
+
+private:
+    void on_menu_preferences_options(void);
 };
 
 #endif /* MAIN_WINDOW_H */
