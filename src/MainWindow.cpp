@@ -24,11 +24,6 @@ MainWindow::MainWindow() :
     add_action("paste",
         sigc::mem_fun(*this, &MainWindow::on_menu_others));
 
-    //add_action("something",
-    //    sigc::mem_fun(*this, &MainWindow::on_menu_others));
-        
-    // choises memus, to demonstrate Radio Items,
-    // using our convenience methods for string and int radio values:
     m_refChoice = add_action("preferences",
         sigc::mem_fun(*this, &MainWindow::on_menu_preferences_options));
     m_refToggle = add_action_bool("sometoggle",
